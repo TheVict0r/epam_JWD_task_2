@@ -9,8 +9,6 @@ public class Operator {
 	public void addBallToBasket(Ball ball) {
 		Basket basket = Basket.getInstance();
 		basket.getList().add(ball);
-		basket.addTotalWeight(ball.getWeight());
-		
 	}
 	
 	public int calculateCountOfColorBalls(Color color) {
@@ -27,7 +25,13 @@ public class Operator {
 	
 	public double getBusketTotalWeight() {
 		Basket basket = Basket.getInstance();
-		return basket.getTotalWeight();
+		
+		double totalWeight = 0.0;
+		for(Ball ball : basket.getList()) {
+			totalWeight += ball.getWeight();
+		}
+		
+		return totalWeight;
 	}
 	
 }

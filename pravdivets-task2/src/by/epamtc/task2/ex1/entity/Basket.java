@@ -9,8 +9,10 @@ public class Basket {
 
 	private static Basket instance;
 
-	private Basket() {
+	private List<Ball> list;
 
+	private Basket() {
+		list = new ArrayList<>();
 	}
 
 	public static Basket getInstance() {
@@ -21,21 +23,7 @@ public class Basket {
 		return instance;
 	}
 
-	private double totalWeight = 0.0;
-
-	public double getTotalWeight() {
-		return totalWeight;
-	}
-
-	public void addTotalWeight (double ballWeight) {
-		totalWeight += ballWeight;
-	}
-	
-	
-	
-	private List<Ball> list = new ArrayList<>();
-	
-	public List<Ball> getList(){
+	public List<Ball> getList() {
 		return list;
 	}
 
