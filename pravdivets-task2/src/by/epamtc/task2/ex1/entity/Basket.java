@@ -3,7 +3,7 @@ package by.epamtc.task2.ex1.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-//Singletone
+// Singleton
 
 public class Basket {
 
@@ -27,4 +27,11 @@ public class Basket {
 		return list;
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + " [list=" + list + "]";
+	}
+
+	
+	
 }

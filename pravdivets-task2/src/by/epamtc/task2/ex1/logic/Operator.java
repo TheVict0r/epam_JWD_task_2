@@ -11,7 +11,7 @@ public class Operator {
 		basket.takeBasket().add(ball);
 	}
 	
-	public int defineCountOfColorBalls(Color color) {
+	public int defineColorBallsCount(Color color) {
 		Basket basket = Basket.getInstance();
 		int count = 0;
 		
@@ -20,18 +20,16 @@ public class Operator {
 				count++;
 			}
 		}
-		
 		return count;
 	}
 	
-	public double defineBusketTotalWeight() {
+	public double defineBasketTotalWeight() {
 		Basket basket = Basket.getInstance();
 		double totalWeight = 0.0;
 		
 		for(Ball ball : basket.takeBasket()) {
 			totalWeight += ball.getWeight();
 		}
-		
 		return totalWeight;
 	}
 	
