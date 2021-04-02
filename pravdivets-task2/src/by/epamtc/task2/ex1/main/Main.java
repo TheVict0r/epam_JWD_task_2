@@ -26,8 +26,8 @@ public class Main {
 		operator.addBallToBasket(new Ball(2.8, Color.WHITE));
 		operator.addBallToBasket(new Ball(1.1, Color.ORANGE));
 		
-		System.out.println("Общий вес корзины - " + operator.getBusketTotalWeight());
-		System.out.println("Всего в корзине синих шаров - " + operator.calculateCountOfColorBalls(Color.BLUE));
+		System.out.println("Общий вес корзины - " + operator.defineBusketTotalWeight());
+		System.out.println("Всего в корзине синих шаров - " + operator.defineCountOfColorBalls(Color.BLUE));
 		
 	}
 

@@ -8,13 +8,14 @@ public class Operator {
 
 	public void addBallToBasket(Ball ball) {
 		Basket basket = Basket.getInstance();
-		basket.getList().add(ball);
+		basket.takeBasket().add(ball);
 	}
 	
-	public int calculateCountOfColorBalls(Color color) {
+	public int defineCountOfColorBalls(Color color) {
 		Basket basket = Basket.getInstance();
 		int count = 0;
-		for(Ball ball : basket.getList()) {
+		
+		for(Ball ball : basket.takeBasket()) {
 			if (ball.getColor() == color) {
 				count++;
 			}
@@ -23,11 +24,11 @@ public class Operator {
 		return count;
 	}
 	
-	public double getBusketTotalWeight() {
+	public double defineBusketTotalWeight() {
 		Basket basket = Basket.getInstance();
-		
 		double totalWeight = 0.0;
-		for(Ball ball : basket.getList()) {
+		
+		for(Ball ball : basket.takeBasket()) {
 			totalWeight += ball.getWeight();
 		}
 		

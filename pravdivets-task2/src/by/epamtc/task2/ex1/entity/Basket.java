@@ -23,7 +23,7 @@ public class Basket {
 		return instance;
 	}
 
-	public List<Ball> getList() {
+	public List<Ball> takeBasket() {
 		return list;
 	}
 
