@@ -9,8 +9,8 @@ public class BallGenerator {
 
 	public Ball generateRandomBall() {
 
-		double weight = generateRandomBallWeight();
-		Color color = generateRandomBallColor();
+		double weight = generateRandomWeight();
+		Color color = generateRandomColor();
 
 		Ball ball = new Ball(weight, color);
 
@@ -18,7 +18,7 @@ public class BallGenerator {
 	}
 
 	
-	public double generateRandomBallWeight() {
+	public double generateRandomWeight() {
 		Random rand = new Random();
 		double weight;
 		weight = (rand.nextInt(3) + 1) + rand.nextDouble();
@@ -26,7 +26,7 @@ public class BallGenerator {
 	}
 
 	
-	public Color generateRandomBallColor() {
+	public Color generateRandomColor() {
 		Random rand = new Random();
 		int idx = rand.nextInt(6);
 
