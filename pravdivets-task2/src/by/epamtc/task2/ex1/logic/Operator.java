@@ -6,6 +6,18 @@ import by.epamtc.task2.ex1.entity.Color;
 
 public class Operator {
 
+	
+	public void fillBacket (int numberOfBalls) {
+		BallGenerator ballGenerator = new BallGenerator();
+		
+		for (int i = 0; i < numberOfBalls; i++) {
+			Ball ball = ballGenerator.generateRandomBall();
+			addBallToBasket(ball);
+		}
+		
+	}
+	
+	
 	public void addBallToBasket(Ball ball) {
 		Basket basket = Basket.getInstance();
 		basket.takeBasket().add(ball);

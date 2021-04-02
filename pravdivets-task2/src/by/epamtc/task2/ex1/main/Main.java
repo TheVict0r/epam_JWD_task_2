@@ -1,5 +1,7 @@
 package by.epamtc.task2.ex1.main;
 
+import by.epamtc.task2.ex1.datarequest.DataRequest;
+
 //import java.awt.Color;
 
 import by.epamtc.task2.ex1.entity.Ball;
@@ -17,18 +19,16 @@ public class Main {
 
 	public static void main(String[] args) {
 		Operator operator = new Operator();
+		int numberOfBalls = DataRequest.requestNumberOfBalls();
 		
-		operator.addBallToBasket(new Ball(2.8, Color.WHITE));
-		operator.addBallToBasket(new Ball(3.4, Color.BLACK));
-		operator.addBallToBasket(new Ball(2.8, Color.BLUE));
-		operator.addBallToBasket(new Ball(8.3, Color.GRAY));
-		operator.addBallToBasket(new Ball(1.4, Color.BLUE));
-		operator.addBallToBasket(new Ball(7.5, Color.BLUE));
-		operator.addBallToBasket(new Ball(2.8, Color.WHITE));
-		operator.addBallToBasket(new Ball(1.1, Color.ORANGE));
+		operator.fillBacket(numberOfBalls);
 		
-		System.out.println("Общий вес корзины - " + operator.defineBasketTotalWeight());
-		System.out.println("Всего в корзине синих шаров - " + operator.defineColorBallsCount(Color.BLUE));
+		double basketTotalWeight = operator.defineBasketTotalWeight();
+		int colorBallsCount = operator.defineColorBallsCount(Color.BLUE);
+		
+		System.out.println("Общий вес корзины - " + basketTotalWeight);
+		System.out.println("Всего в корзине синих шаров - " + colorBallsCount);
+
 		
 	}
 
