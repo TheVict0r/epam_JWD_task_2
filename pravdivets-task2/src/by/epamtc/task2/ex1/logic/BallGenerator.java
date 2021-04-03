@@ -13,7 +13,6 @@ public class BallGenerator {
 		Color color = generateRandomColor();
 
 		Ball ball = new Ball(weight, color);
-
 		return ball;
 	}
 
@@ -27,11 +26,11 @@ public class BallGenerator {
 
 	
 	public Color generateRandomColor() {
-		Random rand = new Random();
-		int idx = rand.nextInt(6);
-
 		Color color = Color.BLUE;
 		Color[] allColors = Color.values();
+
+		Random rand = new Random();
+		int idx = rand.nextInt(allColors.length);
 
 		for (int i = 0; i < allColors.length; i++) {
 			if (i == idx) {

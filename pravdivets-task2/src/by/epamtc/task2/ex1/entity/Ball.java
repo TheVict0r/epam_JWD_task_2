@@ -2,12 +2,19 @@ package by.epamtc.task2.ex1.entity;
 
 import java.io.Serializable;
 
+import by.epamtc.task2.ex1.logic.BallGenerator;
+
 @SuppressWarnings({ "serial" })
 public class Ball implements Serializable{
 
 	private double weight;
 	private Color color;
 	
+	
+	public Ball() {
+		BallGenerator ballGenerator = new BallGenerator();
+		ballGenerator.generateRandomBall();
+	}
 	
 	public Ball(double weight, Color color) {
 		this.weight = weight;
