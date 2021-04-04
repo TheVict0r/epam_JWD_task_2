@@ -10,7 +10,11 @@ public class Basket {
 	private static Basket instance;
 
 	private List<Ball> list;
+	
+	private int capacity;
 
+	private final static int DEFAULT_CAPACITY = 70;
+	
 	private Basket() {
 		list = new ArrayList<>();
 	}
@@ -18,9 +22,19 @@ public class Basket {
 	public static Basket getInstance() {
 		if (instance == null) {
 			instance = new Basket();
+			instance.setCapacity(DEFAULT_CAPACITY);
 		}
 
 		return instance;
+	}
+
+	
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
 	}
 
 	public List<Ball> takeBasket() {
