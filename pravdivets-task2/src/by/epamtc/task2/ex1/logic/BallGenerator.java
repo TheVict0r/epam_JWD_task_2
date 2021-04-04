@@ -26,7 +26,7 @@ public class BallGenerator {
 
 	
 	public Color generateRandomColor() {
-		Color color = Color.BLUE;
+		Color color = null;
 		Color[] allColors = Color.values();
 
 		Random rand = new Random();
