@@ -1,14 +1,17 @@
 package by.epamtc.task2.ex1.datarequest;
 
+import by.epamtc.task2.ex1.entity.Basket;
 import by.epamtc.task2.ex1.scanner.DataScanner;
 
 public class DataRequest {
 
 	public static int requestNumberOfBalls() {
 		int numberOfBalls = 0;
-
-		System.out.println("Укажите, пожалуйста, сколько мячей вы хотите положить в корзину:");
-
+		Basket basket = Basket.getInstance();
+		int basketCapacity = basket.getCapacity();
+		
+		System.out.printf("Укажите, пожалуйста, сколько мячей вы хотите положить в корзину (сейчас в неё помещается не более %s мячей):\n", basketCapacity);
+				
 		do {
 			numberOfBalls = DataScanner.enterIntFromConsole();
 
