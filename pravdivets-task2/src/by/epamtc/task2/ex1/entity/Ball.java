@@ -5,6 +5,7 @@ import java.io.Serializable;
 import by.epamtc.task2.ex1.exception.NoColorException;
 import by.epamtc.task2.ex1.logic.BallGenerator;
 
+
 @SuppressWarnings({ "serial" })
 public class Ball implements Serializable{
 
