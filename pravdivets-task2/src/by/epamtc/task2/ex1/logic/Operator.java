@@ -17,7 +17,7 @@ public class Operator {
 		for (int i = 0; i < numberOfBalls; i++) {
 			
 			if (ballsInBucket == basket.getCapacity()) {
-				System.out.println("Всего в корзину поместилось " + ballsInBucket + " мячей. В ней больше нет места.");
+				System.out.println("Всего в корзине поместилось " + ballsInBucket + " мячей. В ней больше нет места.");
 				break;
 			}
 			
@@ -54,7 +54,7 @@ public class Operator {
 		return ball;
 	}
 	
-	public int defineColorBallsCount(Color color) throws NoColorException {
+	public int countColorBalls(Color color) throws NoColorException {
 		if (color == null) {
 			throw new NoColorException();
 		}

@@ -25,7 +25,7 @@ public class Main {
 		
 		operator.fillBacket(numberOfBalls);
 		double basketTotalWeight = operator.defineBasketTotalWeight();
-		int colorBallsCount = operator.defineColorBallsCount(Color.BLUE);
+		int colorBallsCount = operator.countColorBalls(Color.BLUE);
 		
 		System.out.println("Общий вес корзины - " + basketTotalWeight);
 		System.out.println("Всего в корзине синих мячей - " + colorBallsCount);
