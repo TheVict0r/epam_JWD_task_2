@@ -4,10 +4,11 @@ import java.util.Random;
 
 import by.epamtc.task2.ex1.entity.Ball;
 import by.epamtc.task2.ex1.entity.Color;
+import by.epamtc.task2.ex1.exception.NoColorException;
 
 public class BallGenerator {
 
-	public Ball generateRandomBall() {
+	public Ball generateRandomBall() throws NoColorException {
 
 		double weight = generateRandomWeight();
 		Color color = generateRandomColor();

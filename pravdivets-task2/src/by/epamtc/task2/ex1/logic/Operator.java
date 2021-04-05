@@ -10,7 +10,7 @@ public class Operator {
 
 	private int ballsInBucket = 0;
 	
-	public void fillBacket (int numberOfBalls) throws NoBallException {
+	public void fillBacket (int numberOfBalls) throws NoBallException, NoColorException {
 		BallGenerator ballGenerator = new BallGenerator();
 		Basket basket = Basket.getInstance();
 		

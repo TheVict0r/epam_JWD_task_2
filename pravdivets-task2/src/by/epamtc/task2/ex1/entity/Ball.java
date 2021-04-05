@@ -12,7 +12,7 @@ public class Ball implements Serializable{
 	private Color color;
 	
 	
-	public Ball() {
+	public Ball() throws NoColorException {
 		BallGenerator ballGenerator = new BallGenerator();
 		ballGenerator.generateRandomBall();
 	}
