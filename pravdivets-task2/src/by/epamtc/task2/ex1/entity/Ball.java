@@ -2,10 +2,6 @@ package by.epamtc.task2.ex1.entity;
 
 import java.io.Serializable;
 
-import by.epamtc.task2.ex1.exception.NoColorException;
-import by.epamtc.task2.ex1.logic.BallGenerator;
-
-
 @SuppressWarnings({ "serial" })
 public class Ball implements Serializable{
 
@@ -13,14 +9,14 @@ public class Ball implements Serializable{
 	private Color color;
 	
 	
-	public Ball() throws NoColorException {
-		BallGenerator ballGenerator = new BallGenerator();
-		ballGenerator.generateRandomBall();
+	public Ball() {
+		
 	}
 	
-	public Ball(double weight, Color color) throws NoColorException {
+	public Ball(double weight, Color color) {
 		if (color == null) {
-			throw new NoColorException();
+			//throw new NoColorException(color);
+			//пока не реализовано
 		}
 		
 		this.weight = weight;
@@ -39,9 +35,10 @@ public class Ball implements Serializable{
 		return color;
 	}
 
-	public void setColor(Color color) throws NoColorException {
+	public void setColor(Color color) {
 		if (color == null) {
-			throw new NoColorException();
+			//throw new NoColorException(color);
+			//пока не реализовано
 		}
 		this.color = color;
 	}

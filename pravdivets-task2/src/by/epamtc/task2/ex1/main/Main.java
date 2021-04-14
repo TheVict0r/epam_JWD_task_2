@@ -1,11 +1,11 @@
 package by.epamtc.task2.ex1.main;
 
-import by.epamtc.task2.ex1.datarequest.DataRequest;
 
+
+import by.epamtc.task2.ex1.entity.Ball;
+import by.epamtc.task2.ex1.entity.Basket;
 import by.epamtc.task2.ex1.entity.Color;
-import by.epamtc.task2.ex1.exception.NoBallException;
-import by.epamtc.task2.ex1.exception.NoColorException;
-import by.epamtc.task2.ex1.logic.Operator;
+
 
 /*
  * Создать класс Мяч. Создать класс Корзина. Наполнить корзину мячиками. 
@@ -17,24 +17,29 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		int numberOfBalls = DataRequest.requestNumberOfBalls();
 		
 		Operator operator = new Operator();
+		Basket basket = new Basket();
 		
-		try {
+			
+		operator.fillBacket(basket, 50);
+		Ball ball1 = new Ball(2, Color.BLUE);
+		Ball ball2 = new Ball(1.5, Color.RED);
+		Ball ball3 = new Ball(0.5, Color.ORANGE);
+		operator.addBallToBasket(basket, ball1);
+		operator.addBallToBasket(basket, ball2);
+		operator.addBallToBasket(basket, ball3);
+		operator.removeBallFromBucket(basket, Color.ORANGE);
+		operator.fillBacket(basket, 50);
+		System.out.println("Сейчас в корзине мячей - " + operator.getBallsInBucket());
+		System.out.println("Емкость корзины составляет - " + basket.getCapacity());
 		
-		operator.fillBacket(numberOfBalls);
-		double basketTotalWeight = operator.defineBasketTotalWeight();
-		int colorBallsCount = operator.countColorBalls(Color.BLUE);
+		double basketTotalWeight = operator.defineBasketTotalWeight(basket);
+		int colorBallsCount = operator.countColorBalls(basket, Color.BLUE);
 		
 		System.out.println("Общий вес корзины - " + basketTotalWeight);
 		System.out.println("Всего в корзине синих мячей - " + colorBallsCount);
 		
-		} catch (NoBallException nB) {
-			nB.printStackTrace();
-		} catch (NoColorException nC) {
-			nC.printStackTrace();
-		}
 		
 
 		

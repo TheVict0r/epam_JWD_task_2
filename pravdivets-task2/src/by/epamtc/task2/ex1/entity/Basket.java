@@ -3,11 +3,9 @@ package by.epamtc.task2.ex1.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-// Singleton
 
 public class Basket {
 
-	private static Basket instance;
 
 	private List<Ball> list;
 	
@@ -15,19 +13,15 @@ public class Basket {
 
 	private final static int DEFAULT_CAPACITY = 70;
 	
-	private Basket() {
+	public Basket() {
 		list = new ArrayList<>();
+		setCapacity(DEFAULT_CAPACITY);
 	}
 
-	public static Basket getInstance() {
-		if (instance == null) {
-			instance = new Basket();
-			instance.setCapacity(DEFAULT_CAPACITY);
-		}
-
-		return instance;
+	public Basket(int capacity) {
+		list = new ArrayList<>();
+		this.capacity = capacity;
 	}
-
 	
 	public int getCapacity() {
 		return capacity;
@@ -41,11 +35,40 @@ public class Basket {
 		return list;
 	}
 
+
 	@Override
-	public String toString() {
-		return getClass().getSimpleName() + " [list=" + list + "]";
+	public int hashCode() {
+		final int prime = 42;
+		int result = 1;
+		result = prime * result + capacity;
+		result = prime * result + ((list == null) ? 0 : list.hashCode());
+		return result;
 	}
 
-	
-	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Basket other = (Basket) obj;
+		if (capacity != other.capacity)
+			return false;
+		if (list == null) {
+			if (other.list != null)
+				return false;
+		} else if (!list.equals(other.list))
+			return false;
+		return true;
+	}
+
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + " [list=" + list + ", capacity=" + capacity + "]";
+	}
+
 }
