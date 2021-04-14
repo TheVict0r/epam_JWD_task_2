@@ -1,4 +1,4 @@
-package by.epamtc.task2.ex1.main;
+package by.epamtc.task2.ex1.action;
 
 import java.util.Random;
 
