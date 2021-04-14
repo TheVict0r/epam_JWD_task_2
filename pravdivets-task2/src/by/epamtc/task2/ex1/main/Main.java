@@ -17,11 +17,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		
 		Operator operator = new Operator();
 		Basket basket = new Basket();
 		
-			
 		operator.fillBacket(basket, 50);
 		Ball ball1 = new Ball(2, Color.BLUE);
 		Ball ball2 = new Ball(1.5, Color.RED);
@@ -31,6 +29,7 @@ public class Main {
 		operator.addBallToBasket(basket, ball3);
 		operator.removeBallFromBucket(basket, Color.ORANGE);
 		operator.fillBacket(basket, 50);
+		
 		System.out.println("Сейчас в корзине мячей - " + operator.getBallsInBucket());
 		System.out.println("Емкость корзины составляет - " + basket.getCapacity());
 		
