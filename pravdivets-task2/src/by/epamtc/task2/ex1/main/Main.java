@@ -28,14 +28,15 @@ public class Main {
 		operator.addBallToBasket(basket, ball1);
 		operator.addBallToBasket(basket, ball2);
 		operator.addBallToBasket(basket, ball3);
-		operator.removeBallFromBucket(basket, Color.ORANGE);
+		operator.removeBallByColor(basket, Color.ORANGE);
+		operator.removeSpecificBall(basket, ball3);
 		operator.fillBacket(basket, 50);
 		
-		System.out.println("Сейчас в корзине мячей - " + operator.getBallsInBucket());
+		System.out.println("Сейчас в корзине мячей - " + basket.getBallsInBucket());
 		System.out.println("Емкость корзины составляет - " + basket.getCapacity());
 		
 		double basketTotalWeight = operator.defineBasketTotalWeight(basket);
-		int colorBallsCount = operator.countColorBalls(basket, Color.BLUE);
+		int colorBallsCount = operator.countBallsByColor(basket, Color.BLUE);
 		
 		System.out.println("Общий вес корзины - " + basketTotalWeight);
 		System.out.println("Всего в корзине синих мячей - " + colorBallsCount);

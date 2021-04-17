@@ -13,14 +13,18 @@ public class Basket {
 
 	private final static int DEFAULT_CAPACITY = 70;
 	
+	private int ballsInBucket;
+	
 	public Basket() {
 		list = new ArrayList<>();
 		setCapacity(DEFAULT_CAPACITY);
+		ballsInBucket = 0;
 	}
 
 	public Basket(int capacity) {
 		list = new ArrayList<>();
 		this.capacity = capacity;
+		ballsInBucket = 0;
 	}
 	
 	public int getCapacity() {
@@ -31,6 +35,15 @@ public class Basket {
 		this.capacity = capacity;
 	}
 
+	public int getBallsInBucket() {
+		return ballsInBucket;
+	}
+
+	public void setBallsInBucket(int ballsInBucket) {
+		this.ballsInBucket = ballsInBucket;
+	}
+	
+	
 	public List<Ball> takeBasket() {
 		return list;
 	}

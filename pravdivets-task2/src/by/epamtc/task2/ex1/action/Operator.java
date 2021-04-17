@@ -8,14 +8,10 @@ import by.epamtc.task2.ex1.entity.Color;
 
 public class Operator {
 
-	private int ballsInBucket = 0;
 	private final int BUFFER = 10;
-	// величина, на которую в случае необходимости будет автоматически увеличиваться
+	// величина, на которую в случае необходимости "оператор" будет автоматически увеличивать
 	// capacity корзины
 
-	public int getBallsInBucket() {
-		return ballsInBucket;
-	}
 
 	public void addBallToBasket(Basket basket, Ball ball) {
 		if (basket == null) {
@@ -27,12 +23,12 @@ public class Operator {
 			// throw new NoBallException(ball);
 		}
 
-		if (ballsInBucket == basket.getCapacity()) {
-			basket.setCapacity(ballsInBucket + BUFFER);
+		if (basket.getBallsInBucket() == basket.getCapacity()) {
+			basket.setCapacity(basket.getBallsInBucket() + BUFFER);
 		}
 
 		basket.takeBasket().add(ball);
-		ballsInBucket++;
+		basket.setBallsInBucket(basket.getBallsInBucket() + 1);
 	}
 
 	public void fillBacket(Basket basket, int numberOfBalls) {
@@ -54,7 +50,7 @@ public class Operator {
 
 	}
 
-	public Ball removeBallFromBucket(Basket basket, Color color) {
+	public Ball removeBallByColor(Basket basket, Color color) {
 		if (color == null) {
 			// throw new NoColorException();
 		}
@@ -73,25 +69,51 @@ public class Operator {
 
 		if (ball != null) {
 			basket.takeBasket().remove(ball);
-			ballsInBucket--;
+			basket.setBallsInBucket(basket.getBallsInBucket() - 1);
 		}
 
 		return ball;
 	}
 
-	public int countColorBalls(Basket basket, Color color) {
-		if (color == null) {
-			// throw new NoColorException(color);
-			// пока не реализовано
+	
+	public Ball removeSpecificBall(Basket basket, Ball ball) {
+		if (ball == null) {
+			// throw new NoBallException();
 		}
-
+		
 		if (basket == null) {
 			// throw new NullBasketException(basket);
 			// пока не реализовано
 		}
-
+		
+		Ball outBall = null;
+		for (Ball ballInBucket : basket.takeBasket()) {
+			if (ballInBucket.equals(ball)) {
+				outBall = ballInBucket;
+			}
+		}
+		
+		if (outBall != null) {
+			basket.takeBasket().remove(outBall);
+			basket.setBallsInBucket(basket.getBallsInBucket() - 1);
+		}
+		
+		return outBall;
+	}
+	
+	public int countBallsByColor(Basket basket, Color color) {
+		if (color == null) {
+			// throw new NoColorException(color);
+			// пока не реализовано
+		}
+		
+		if (basket == null) {
+			// throw new NullBasketException(basket);
+			// пока не реализовано
+		}
+		
 		int count = 0;
-
+		
 		for (Ball ball : basket.takeBasket()) {
 			if (ball.getColor() == color) {
 				count++;
