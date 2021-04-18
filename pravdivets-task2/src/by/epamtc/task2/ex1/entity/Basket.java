@@ -35,7 +35,7 @@ public class Basket {
 		this.capacity = capacity;
 	}
 
-	public int getBallsInBucket() {
+	public int getBallsInBasket() {
 		return ballsInBucket;
 	}
 

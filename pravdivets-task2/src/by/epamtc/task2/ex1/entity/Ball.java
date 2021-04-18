@@ -75,7 +75,7 @@ public class Ball implements Serializable{
 
 	@Override
 	public String toString() {
-		return getClass().getSimpleName() + " [weight=" + weight + ", color=" + color.name() + "]";
+		return getClass().getSimpleName() + " [color = " + color.name() + ", " + "weight = " + weight + "]";
 	}
 	
 	

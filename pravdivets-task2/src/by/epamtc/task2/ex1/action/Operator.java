@@ -23,15 +23,15 @@ public class Operator {
 			// throw new NoBallException(ball);
 		}
 
-		if (basket.getBallsInBucket() == basket.getCapacity()) {
-			basket.setCapacity(basket.getBallsInBucket() + BUFFER);
+		if (basket.getBallsInBasket() == basket.getCapacity()) {
+			basket.setCapacity(basket.getBallsInBasket() + BUFFER);
 		}
 
 		basket.takeBasket().add(ball);
-		basket.setBallsInBucket(basket.getBallsInBucket() + 1);
+		basket.setBallsInBucket(basket.getBallsInBasket() + 1);
 	}
 
-	public void fillBacket(Basket basket, int numberOfBalls) {
+	public void fillBasket(Basket basket, int numberOfBalls) {
 
 		if (basket == null) {
 			// throw new NullBasketException(basket);
@@ -50,33 +50,9 @@ public class Operator {
 
 	}
 
-	public Ball removeBallByColor(Basket basket, Color color) {
-		if (color == null) {
-			// throw new NoColorException();
-		}
-
-		if (basket == null) {
-			// throw new NullBasketException(basket);
-			// пока не реализовано
-		}
-
-		Ball ball = null;
-		for (Ball ballInBucket : basket.takeBasket()) {
-			if (ballInBucket.getColor() == color) {
-				ball = ballInBucket;
-			}
-		}
-
-		if (ball != null) {
-			basket.takeBasket().remove(ball);
-			basket.setBallsInBucket(basket.getBallsInBucket() - 1);
-		}
-
-		return ball;
-	}
 
 	
-	public Ball removeSpecificBall(Basket basket, Ball ball) {
+	public Ball takeSpecifiedBall(Basket basket, Ball ball) {
 		if (ball == null) {
 			// throw new NoBallException();
 		}
@@ -95,10 +71,51 @@ public class Operator {
 		
 		if (outBall != null) {
 			basket.takeBasket().remove(outBall);
-			basket.setBallsInBucket(basket.getBallsInBucket() - 1);
+			basket.setBallsInBucket(basket.getBallsInBasket() - 1);
 		}
 		
 		return outBall;
+	}
+
+	public Ball takeBallByColor(Basket basket, Color color) {
+		if (color == null) {
+			// throw new NoColorException();
+		}
+
+		if (basket == null) {
+			// throw new NullBasketException(basket);
+			// пока не реализовано
+		}
+
+		Ball ball = null;
+		for (Ball ballInBucket : basket.takeBasket()) {
+			if (ballInBucket.getColor() == color) {
+				ball = ballInBucket;
+			}
+		}
+
+		if (ball != null) {
+			basket.takeBasket().remove(ball);
+			basket.setBallsInBucket(basket.getBallsInBasket() - 1);
+		}
+
+		return ball;
+	}
+
+	public Ball takeRandomBall(Basket basket) {
+		if (basket == null) {
+			// throw new NullBasketException(basket);
+			// пока не реализовано
+		}
+
+		Random random = new Random();
+		
+		int idx = random.nextInt(basket.getBallsInBasket());
+		
+		Ball ball = basket.takeBasket().remove(idx);
+		basket.setBallsInBucket(basket.getBallsInBasket() - 1);
+		
+		return ball;
 	}
 	
 	public int countBallsByColor(Basket basket, Color color) {
@@ -114,8 +131,8 @@ public class Operator {
 		
 		int count = 0;
 		
-		for (Ball ball : basket.takeBasket()) {
-			if (ball.getColor() == color) {
+		for (Ball ballInBucket : basket.takeBasket()) {
+			if (ballInBucket.getColor() == color) {
 				count++;
 			}
 		}
