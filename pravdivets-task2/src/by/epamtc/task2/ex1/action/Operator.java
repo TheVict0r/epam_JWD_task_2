@@ -54,7 +54,7 @@ public class Operator {
 	
 	public Ball takeSpecifiedBall(Basket basket, Ball ball) {
 		if (ball == null) {
-			// throw new NoBallException();
+			// throw new NoBallException("Variable is not initialized");
 		}
 		
 		if (basket == null) {

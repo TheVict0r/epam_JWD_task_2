@@ -5,14 +5,9 @@ import java.util.List;
 
 
 public class Basket {
-
-
 	private List<Ball> list;
-	
 	private int capacity;
-
 	private final static int DEFAULT_CAPACITY = 70;
-	
 	private int ballsInBucket;
 	
 	public Basket() {
